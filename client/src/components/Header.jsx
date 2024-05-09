@@ -11,7 +11,7 @@ function Header() {
         to="/"
         className="self-center whitespace-nowrap text-base sm:text-xl font-semibold dark:text-white"
       >
-        <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
+        <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           Midhun
         </span>
         <span className="text-[10px]">.Blog</span>
