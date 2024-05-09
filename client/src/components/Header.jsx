@@ -9,9 +9,9 @@ function Header() {
     <Navbar className="border-b-2">
       <Link
         to="/"
-        className="self-center whitespace-nowrap text-base sm:text-xl font-semibold dark:text-white"
+        className="self-center whitespace-nowrap font-semibold dark:text-white"
       >
-        <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <span className="font-bold text-base sm:text-xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           Midhun
         </span>
         <span className="text-[10px]">.Blog</span>
