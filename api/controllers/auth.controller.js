@@ -13,7 +13,7 @@ export const signup = async (req, res, next) => {
       email === "" ||
       password === ""
     ) {
-      throw new BadRequestError("Please provide username, email and password");
+      throw new BadRequestError("Please fill out all fields");
     }
 
     await User.create({ ...req.body });
