@@ -50,7 +50,7 @@ export default function SignIn() {
     <div className="min-h-screen mt-20">
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-start gap-5">
         {/* left */}
-        <div className="flex-1 md:pt-[40px]">
+        <div className="flex-1 md:pt-[80px]">
           <Link
             to="/"
             className="self-center whitespace-nowrap font-semibold dark:text-white"
