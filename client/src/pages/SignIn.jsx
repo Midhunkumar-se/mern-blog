@@ -1,5 +1,5 @@
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   signInFailure,
@@ -7,23 +7,14 @@ import {
   signInSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const {
-    currentUser,
-    loading,
-    error: errorMessage,
-  } = useSelector((state) => state.user);
-  console.log(errorMessage);
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (currentUser) {
-      dispatch(signInSuccess(currentUser));
-    }
-  }, [dispatch]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
@@ -70,8 +61,8 @@ export default function SignIn() {
             <span className="text-[12px]">.Blog</span>
           </Link>
           <p className="text-sm mt-3">
-            This is a demo project. You can sign up with your email and password
-            or with Google.
+            On this blog I share tips and tricks, frameworks, projects,
+            tutorials.
           </p>
         </div>
         {/* right */}
@@ -110,6 +101,7 @@ export default function SignIn() {
                 "Sign In"
               )}
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Dont Have an account?</span>
