@@ -9,7 +9,7 @@ export const test = (req, res) => {
 
 export const updateUser = async (req, res, next) => {
   try {
-    if (req.user.userId !== req.params.userId) {
+    if (req.user.id !== req.params.userId) {
       throw new ForbiddenError("You are not allowed to update this user");
     }
 
