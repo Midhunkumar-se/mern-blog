@@ -41,7 +41,9 @@ const DashPosts = () => {
           setShowMore(false);
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
