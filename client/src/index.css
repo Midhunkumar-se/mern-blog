@@ -9,3 +9,13 @@ body {
 .ql-editor {
   font-size: 1.05rem;
 }
+
+.green-tag {
+  @apply bg-green-100 text-green-700 rounded-full px-3 py-1 text-[12px];
+}
+.purple-tag {
+  @apply bg-purple-100 text-purple-700 rounded-full px-3 py-1 text-[12px];
+}
+.yellow-tag {
+  @apply bg-yellow-100 text-yellow-700 rounded-full px-3 py-1 text-[12px];
+}
