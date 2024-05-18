@@ -1,4 +1,4 @@
-import { Button, Modal, Table } from "flowbite-react";
+import { Button, Modal, Spinner, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { FaCheck, FaTimes } from "react-icons/fa";
@@ -10,19 +10,23 @@ const DashUsers = () => {
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [userIdToDelete, setUserIdToDelete] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        setLoading(true);
         const res = await fetch(`/api/user/getusers`);
         const data = await res.json();
         if (res.ok) {
           setUsers(data.users);
+          setLoading(false);
           if (data.users.length < 7) {
             setShowMore(false);
           }
         }
       } catch (error) {
+        setLoading(false);
         console.log(error);
       }
     };
@@ -47,10 +51,26 @@ const DashUsers = () => {
     }
   };
 
-  const handleDeleteUser = () => {};
+  const handleDeleteUser = async () => {
+    try {
+      const res = await fetch(`/api/user/delete/${userIdToDelete}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setUsers((prev) => prev.filter((user) => user._id !== userIdToDelete));
+        setShowModal(false);
+      } else {
+        console.log(data.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
-    <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-track-slate-500">
+    <div className="table-auto overflow-x-auto md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-track-slate-500">
       {currentUser.isAdmin && users.length > 0 ? (
         <>
           <Table hoverable className="shadow-md">
@@ -109,8 +129,9 @@ const DashUsers = () => {
               Show More
             </button>
           )}
-          {}
         </>
+      ) : loading ? (
+        <Spinner aria-label="Extra large spinner example" size="xl" />
       ) : (
         <p>You have no users yet</p>
       )}

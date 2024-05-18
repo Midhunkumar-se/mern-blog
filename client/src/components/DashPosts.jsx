@@ -1,4 +1,4 @@
-import { Button, Modal, Table } from "flowbite-react";
+import { Button, Modal, Spinner, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useSelector } from "react-redux";
@@ -10,20 +10,24 @@ const DashPosts = () => {
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [postIdToDelete, setPostIdToDelete] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        setLoading(true);
         const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
         const data = await res.json();
         if (res.ok) {
           setUserPosts(data.posts);
+          setLoading(false);
           if (data.posts.length < 9) {
             setShowMore(false);
           }
         }
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
     if (currentUser.isAdmin) {
@@ -157,8 +161,12 @@ const DashPosts = () => {
           )}
           {}
         </>
+      ) : loading ? (
+        <div className="flex justify-center">
+          <Spinner aria-label="Extra large spinner example" size="xl" />
+        </div>
       ) : (
-        <p>You have no post yet</p>
+        <p className="text-center">You have no post yet</p>
       )}
 
       <Modal

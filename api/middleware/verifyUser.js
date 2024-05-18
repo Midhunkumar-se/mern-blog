@@ -8,7 +8,6 @@ export const verifyToken = (req, res, next) => {
   } else {
     token = req.headers.cookie;
   }
-
   try {
     if (!token) {
       throw new UnAuthenticatedError("Unauthorized");
