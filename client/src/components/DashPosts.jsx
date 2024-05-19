@@ -163,7 +163,11 @@ const DashPosts = () => {
         </>
       ) : loading ? (
         <div className="flex justify-center">
-          <Spinner aria-label="Extra large spinner example" size="xl" />
+          <Spinner
+            aria-label="Extra large spinner example"
+            size="xl"
+            className="mt-20"
+          />
         </div>
       ) : (
         <p className="text-center">You have no post yet</p>

@@ -19,3 +19,33 @@ body {
 .yellow-tag {
   @apply bg-yellow-100 text-yellow-700 rounded-full px-3 py-1 text-[12px];
 }
+.post-content p {
+  margin-bottom: 0.2rem;
+}
+.post-content h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  margin: 1rem 0;
+}
+
+.post-content a {
+  color: rgb(73, 149, 199);
+  text-decoration: none;
+}
+.post-content pre {
+  background-color: #1e293b;
+  border: 1px solid rgb(61, 69, 83);
+  color: #e8e7e7;
+  white-space: pre-wrap;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.dark .post-content a {
+  color: rgb(73, 149, 199);
+}

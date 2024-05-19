@@ -27,6 +27,31 @@ function UpdatePost() {
 
   const navigate = useNavigate();
 
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["bold", "italic", "underline"],
+      [{ script: "sub" }, { script: "super" }],
+      ["link"],
+      ["clean"], // remove formatting button
+      [{ "code-block": true }], // add code block button
+    ],
+  };
+
+  const formats = [
+    "header",
+    "font",
+    "list",
+    "bold",
+    "italic",
+    "underline",
+    "script",
+    "link",
+
+    "code-block",
+  ];
+
   useEffect(() => {
     try {
       const fetchPost = async () => {
@@ -182,6 +207,8 @@ function UpdatePost() {
           placeholder="Write something..."
           className="h-72 mb-12"
           required
+          modules={modules}
+          formats={formats}
           onChange={(value) => {
             setFormData({ ...formData, content: value });
           }}

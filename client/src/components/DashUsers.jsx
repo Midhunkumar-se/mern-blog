@@ -70,7 +70,7 @@ const DashUsers = () => {
   };
 
   return (
-    <div className="table-auto overflow-x-auto md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-track-slate-500">
+    <div className="w-full table-auto overflow-x-auto md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-track-slate-500">
       {currentUser.isAdmin && users.length > 0 ? (
         <>
           <Table hoverable className="shadow-md">
@@ -131,7 +131,11 @@ const DashUsers = () => {
           )}
         </>
       ) : loading ? (
-        <Spinner aria-label="Extra large spinner example" size="xl" />
+        <Spinner
+          aria-label="Extra large spinner example"
+          size="xl"
+          className="mt-20"
+        />
       ) : (
         <p>You have no users yet</p>
       )}
