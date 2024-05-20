@@ -131,11 +131,9 @@ const DashUsers = () => {
           )}
         </>
       ) : loading ? (
-        <Spinner
-          aria-label="Extra large spinner example"
-          size="xl"
-          className="mt-20"
-        />
+        <div className="flex justify-center mt-20">
+          <Spinner aria-label="Extra large spinner example" size="xl" />
+        </div>
       ) : (
         <p>You have no users yet</p>
       )}
