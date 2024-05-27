@@ -9,18 +9,19 @@ export default function CallToAction() {
         <p className="text-gray-500 my-2">
           Check out those projects by clicking the button below.
         </p>
-        <Button
-          gradientDuoTone="purpleToPink"
-          className="rounded-tl-xl rounded-bl-none"
+        <a
+          href="https://midhunkumar.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full"
         >
-          <a
-            href="https://midhunkumar.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            gradientDuoTone="purpleToPink"
+            className="w-full rounded-tl-xl rounded-bl-none"
           >
             My Portfolio
-          </a>
-        </Button>
+          </Button>
+        </a>
       </div>
       <div className="p-7 flex-1">
         <img src={portfolio} />

@@ -1,12 +1,6 @@
 import { Footer } from "flowbite-react";
 import { Link } from "react-router-dom";
-import {
-  BsFacebook,
-  BsInstagram,
-  BsTwitter,
-  BsGithub,
-  BsDribbble,
-} from "react-icons/bs";
+import { BsTwitter, BsGithub, BsLinkedin, BsDiscord } from "react-icons/bs";
 export default function FooterCom() {
   return (
     <Footer container className="border border-t-8 border-teal-500">
@@ -73,14 +67,19 @@ export default function FooterCom() {
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
+            <Footer.Icon href="https://x.com/MidhunKumar100" icon={BsTwitter} />
             <Footer.Icon
               href="https://github.com/Midhunkumar-se"
               icon={BsGithub}
             />
-            <Footer.Icon href="#" icon={BsDribbble} />
+            <Footer.Icon
+              href="https://discordapp.com/users/1010139375532773407"
+              icon={BsDiscord}
+            />
+            <Footer.Icon
+              href="https://www.linkedin.com/in/midhun-kumar-30b108273/"
+              icon={BsLinkedin}
+            />
           </div>
         </div>
       </div>
