@@ -150,16 +150,16 @@ function UpdatePost() {
             required
             id="title"
             className="flex-1"
-            onChange={(e) => {
-              setFormData({ ...formData, title: e.target.value });
-            }}
-            value={formData.title}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, title: e.target.value }))
+            }
+            value={formData.title || ""}
           />
           <Select
-            onChange={(e) => {
-              setFormData({ ...formData, category: e.target.value });
-            }}
-            value={formData.category}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, category: e.target.value }))
+            }
+            value={formData.category || ""}
           >
             <option value="uncategorized">Select a category</option>
             <option value="javascript">JavaScript</option>
@@ -196,13 +196,12 @@ function UpdatePost() {
         {imageUploadError && <Alert color="failure">{imageUploadError}</Alert>}
         {formData.image && (
           <img
-            src={formData.image}
             alt="upload"
+            src={formData.image}
             className="w-full h-72 object-cover"
           />
         )}
         <ReactQuill
-          value={formData.content}
           theme="snow"
           placeholder="Write something..."
           className="h-72 mb-12"
@@ -210,8 +209,9 @@ function UpdatePost() {
           modules={modules}
           formats={formats}
           onChange={(value) => {
-            setFormData({ ...formData, content: value });
+            setFormData((prev) => ({ ...prev, content: value }));
           }}
+          value={formData.content || 0}
         />
 
         <Button type="submit" gradientDuoTone="purpleToPink">
