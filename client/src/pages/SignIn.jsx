@@ -109,11 +109,22 @@ export default function SignIn() {
               Sign Up
             </Link>
           </div>
+
           {errorMessage && (
             <Alert className="mt-5" color="failure">
               {errorMessage}
             </Alert>
           )}
+
+          <div className="p-3  flex-1 shadow-lg rounded-md mt-4 bg-white">
+            <h1 className="font-medium">Admin User :-</h1>
+            <p>
+              <span className="font-medium">Email:</span> admin@gmail.com
+            </p>
+            <p>
+              <span className="font-medium">Password:</span> 123456
+            </p>
+          </div>
         </div>
       </div>
     </div>
